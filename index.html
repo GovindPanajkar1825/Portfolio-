@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Govind Panajkar – Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F6; --surface:#FFFFFF; --ink:#14213D; --muted:#4A5A78; --line:#CBD5E3;
+  --accent:#E8A100; --accent-ink:#14213D; --teal:#0E7C86;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A2E; --surface:#16233B; --ink:#E7EDF7; --muted:#9FB0CC; --line:#2A3A58;
+    --accent:#F5B63A; --accent-ink:#0F1A2E; --teal:#4FC3CE; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1A2E; --surface:#16233B; --ink:#E7EDF7; --muted:#9FB0CC; --line:#2A3A58;
+  --accent:#F5B63A; --accent-ink:#0F1A2E; --teal:#4FC3CE; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-weight:500}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px}
+
+/* Hero */
+.hero{padding:56px 0 72px}
+.hero h1{font-size:clamp(52px,12vw,132px);font-weight:800;letter-spacing:-.045em}
+.hero h1 span{display:block}
+.hero h1 span+span{color:var(--teal)}
+.hero p.lead{max-width:60ch;font-size:20px;color:var(--muted);margin:28px 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+.facts{display:flex;gap:36px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:2px solid var(--ink)}
+.facts div b{display:block;font:800 30px "Bricolage Grotesque",sans-serif}
+.facts div{color:var(--muted);font-size:15px}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(32px,5vw,48px);margin-bottom:36px}
+
+/* Timeline of internships (a true sequence) */
+.track{position:relative;display:grid;gap:0;margin:0;padding:0;list-style:none}
+.track li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:0 0 40px;position:relative}
+.track li::before{content:"";position:absolute;left:150px;top:8px;bottom:-8px;width:2px;background:var(--line);transform:translateX(13px)}
+.track li:last-child::before{display:none}
+.track li::after{content:"";position:absolute;left:150px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);transform:translateX(8px);box-shadow:0 0 0 4px var(--bg)}
+.when{font-weight:500;color:var(--muted);font-size:15px;padding-top:2px}
+.track li>div{padding-left:28px}
+.track h3{font-size:24px}
+.org{color:var(--teal);font-weight:500;margin:4px 0 12px}
+.track ul{margin:0;padding-left:18px;color:var(--muted)}
+.track ul li{display:list-item;padding:0 0 6px;grid-template-columns:none}
+.track ul li::before,.track ul li::after{display:none}
+
+/* Projects as rows */
+.proj{display:grid;grid-template-columns:1fr 2fr;gap:28px;padding:28px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:2px solid var(--ink)}
+.proj h3{font-size:26px}
+.proj .meta{color:var(--muted);font-size:15px;margin-top:8px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:3px 10px;font-size:14px}
+.proj p{margin:0 0 10px;color:var(--muted)}
+.proj.big h3{font-size:32px}
+.proj.big{background:var(--surface);padding:32px;border-radius:14px;border:2px solid var(--ink);margin-bottom:12px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 40px}
+.skills h3{font-size:19px;margin-bottom:12px;color:var(--teal)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--surface);border:1px solid var(--line);padding:5px 12px;border-radius:999px;font-size:15px}
+
+/* Education */
+.edu{display:grid;gap:0}
+.edu div{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.edu div:first-child{border-top:2px solid var(--ink)}
+.edu h3{font-size:21px}
+.edu p{margin:2px 0 0;color:var(--muted);font-size:16px}
+.edu .score{font:800 26px "Bricolage Grotesque",sans-serif;text-align:right}
+.edu .score small{display:block;font:400 14px "IBM Plex Sans",sans-serif;color:var(--muted)}
+.certs{margin:36px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.certs li{padding-left:22px;position:relative}
+.certs li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;background:var(--accent);border-radius:2px}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:48px 40px;margin:0 0 56px}
+.contact h2{font-size:clamp(34px,6vw,60px);margin-bottom:16px}
+.contact p{margin:0 0 28px;max-width:52ch;opacity:.85}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.primary{background:var(--accent);border-color:var(--accent);color:#14213D}
+footer{padding:0 0 40px;color:var(--muted);font-size:15px}
+
+@media (max-width:720px){
+  .track li{grid-template-columns:1fr;gap:6px}
+  .track li::before{left:5px;transform:none;top:28px}
+  .track li::after{left:0;transform:none;top:6px}
+  .track li>div{padding-left:28px}
+  .when{padding-left:28px}
+  .proj{grid-template-columns:1fr}
+  .proj.big{padding:22px}
+  .edu div{grid-template-columns:1fr}
+  .edu .score{text-align:left}
+  .contact{padding:32px 24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <span class="logo">GP</span>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1><span>Govind</span><span>Panajkar</span></h1>
+    <p class="lead">Final-year B.Tech CSE student (minor in AIML) who builds full-stack web apps with Java, Spring Boot, React and Node.js. Three internships done in 2026, and always looking for the next thing to ship.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#projects">See my work</a>
+    </div>
+    <div class="facts">
+      <div><b>3</b>internships in 2026</div>
+      <div><b>150+</b>LeetCode problems solved</div>
+      <div><b>8.94</b>CGPA, B.Tech CSE</div>
+      <div><b>1M+</b>records a day handled at Eduskill</div>
+    </div>
+  </header>
+</div>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <ol class="track">
+    <li>
+      <span class="when">Jun – Aug 2026</span>
+      <div>
+        <h3>Virtual Intern</h3>
+        <p class="org">Infosys Springboard (Remote), Internship 7.0</p>
+        <ul>
+          <li>Built a lab equipment sharing and utilization platform with React.js, Spring Boot and PostgreSQL, so institutions can share expensive equipment and use it better.</li>
+          <li>Added JWT and OAuth2 login with role-based access control, inventory management, and booking with an availability calendar.</li>
+          <li>Developed utilization monitoring, inter-institution sharing, maintenance and calibration tracking, and analytics dashboards with alerts.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="when">Apr – Jun 2026</span>
+      <div>
+        <h3>MERN Stack Developer Intern</h3>
+        <p class="org">Eduskill (Remote)</p>
+        <ul>
+          <li>Built front-end and back-end parts of a CID processing system handling 1M+ records a day, using React.js, Node.js, Express.js and MySQL.</li>
+          <li>Automated workflows and cut manual processing time by 70%.</li>
+          <li>Worked with other developers using Git branching workflows.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="when">Feb – Apr 2026</span>
+      <div>
+        <h3>Virtual Intern</h3>
+        <p class="org">Infosys Springboard (Remote), Internship 6.0</p>
+        <ul>
+          <li>Built an online volunteer coordination and community engagement platform with React.js.</li>
+          <li>Turned UI/UX designs into clean, reusable front-end code and designed event-coordination features.</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+
+  <article class="proj big">
+    <div>
+      <h3>Lab Resource Utilization Platform</h3>
+      <div class="meta">Infosys Springboard 7.0, Jun – Aug 2026</div>
+      <div class="tags"><span>React.js</span><span>Spring Boot</span><span>PostgreSQL</span><span>JWT</span><span>OAuth2</span></div>
+    </div>
+    <div>
+      <p>An intelligent platform that helps institutions share and make better use of costly lab equipment.</p>
+      <p>Includes role-based access, equipment inventory, booking and scheduling with an availability calendar, maintenance and calibration tracking, and analytics dashboards with booking and maintenance alerts.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <h3>Volunteer Management System</h3>
+      <div class="meta">Feb – Apr 2026</div>
+      <div class="tags"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>Spring Boot</span><span>MySQL</span></div>
+    </div>
+    <div>
+      <p>A volunteer registration and event-management platform built from reusable, component-based front-end code.</p>
+      <p>Role-based access control and real-time volunteer tracking dashboards. Optimized MySQL queries and backend services, cutting database costs by 35%.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <h3>Crop Recommendation System</h3>
+      <div class="meta">Nov 2024 – Jan 2025</div>
+      <div class="tags"><span>Python</span><span>Machine Learning</span></div>
+    </div>
+    <div>
+      <p>A Python ML model that reads soil and environmental data and recommends the best crop to grow. I led the model training and tuning to improve prediction accuracy.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <h3>Smart Bill Wallet</h3>
+      <div class="meta">Oct 2024 – Jan 2025</div>
+      <div class="tags"><span>Java</span><span>SQLite</span><span>Android</span></div>
+    </div>
+    <div>
+      <p>An offline-first Android receipt manager with camera-based bill capture and an expense-tracking dashboard, made for students, professionals and small business owners.</p>
+    </div>
+  </article>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Languages</h3><div class="chips"><span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span></div></div>
+    <div><h3>Full-stack</h3><div class="chips"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>Spring Boot</span><span>HTML</span><span>CSS</span><span>MySQL</span><span>PostgreSQL</span></div></div>
+    <div><h3>CS fundamentals</h3><div class="chips"><span>OOP</span><span>Data Structures &amp; Algorithms</span><span>DBMS</span></div></div>
+    <div><h3>AI / ML</h3><div class="chips"><span>Machine Learning</span><span>Deep Learning</span><span>Generative AI</span></div></div>
+    <div><h3>Cloud &amp; version control</h3><div class="chips"><span>AWS</span><span>Git</span><span>GitHub</span><span>Branching workflows</span><span>CLI</span></div></div>
+    <div><h3>Tools</h3><div class="chips"><span>Postman</span><span>VS Code</span><span>IntelliJ IDEA</span><span>PyCharm</span><span>Android Studio</span></div></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2>Education</h2>
+  <div class="edu">
+    <div>
+      <div style="display:block;border:0;padding:0"><h3>B.Tech, Computer Science &amp; Engineering</h3><p>Minor in AIML · P.R. Pote Patil College of Engineering &amp; Management, Amravati · Expected 2027</p></div>
+      <div class="score" style="display:block;border:0;padding:0">8.94<small>CGPA / 10</small></div>
+    </div>
+    <div>
+      <div style="display:block;border:0;padding:0"><h3>Diploma in Computer Engineering</h3><p>Dr. Punjabrao Deshmukh Polytechnic, Amravati · 2024 · Top Graduate</p></div>
+      <div class="score" style="display:block;border:0;padding:0">82.80%</div>
+    </div>
+    <div>
+      <div style="display:block;border:0;padding:0"><h3>SSC (10th Grade)</h3><p>A.D. Convent English School, Walgaon · 2021</p></div>
+      <div class="score" style="display:block;border:0;padding:0">89.80%</div>
+    </div>
+  </div>
+  <ul class="certs">
+    <li>EduSkills: Java Full Stack Development, SQL &amp; DBMS</li>
+    <li>EduSkills: MERN Full Stack Development</li>
+    <li>Infosys Springboard 7.0: Certificate of Completion, Java Programming Internship</li>
+    <li>Solved 150+ DSA problems on LeetCode</li>
+  </ul>
+</div></section>
+
+<div class="wrap" id="contact">
+  <div class="contact">
+    <h2>Let’s build something.</h2>
+    <p>I’m open to software engineering internships and entry-level roles. Email is the fastest way to reach me.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:govindapanajkar@gmail.com">govindapanajkar@gmail.com</a>
+      <a class="btn" href="https://github.com/GovindPanajkar1825" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/govind-panajkar-53a62135b" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <footer>© 2026 Govind Panajkar · Amravati, Maharashtra</footer>
+</div>
+</body>
+</html>
